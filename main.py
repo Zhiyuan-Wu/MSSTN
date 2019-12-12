@@ -1,6 +1,6 @@
 import numpy as np
 import tensorflow as tf
-from model import ReiWa
+from model import MSSTN
 from data_utils import *
 import yaml
 import os
@@ -18,7 +18,7 @@ if __name__=='__main__':
             config['city_index_0'] = config['city_index_'+i]
             config['adj_matrix_0'] = config['adj_matrix_'+i]
             config['data_path_0'] = config['data_path_'+i]
-    model = ReiWa(config)
+    model = MSSTN(config)
     data = dataset(config)
 
     #os.environ['CUDA_VISIBLE_DEVICES'] = str(config['gpu_device'])
@@ -31,7 +31,6 @@ if __name__=='__main__':
     with tf.Session(config=tfcfg) as sess:
         if len(argv)==1 or 'train' in argv[1]:
             sess.run(tf.global_variables_initializer())
-            #saver.restore(sess, save_path='model/'+'ReiWa20190404_124825'+'/model')
             os.mkdir('model/'+config['ModelName']+version)
             lr = float(config['learning_rate'])
             best_model_recorder = config['BaseLineMAE']
