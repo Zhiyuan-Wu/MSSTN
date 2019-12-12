@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 import scipy.sparse as sp
 from scipy.sparse import linalg
-class ReiWa(object):
+class MSSTN(object):
     def __init__(self, args):
         # model
         self.default_model(args)
