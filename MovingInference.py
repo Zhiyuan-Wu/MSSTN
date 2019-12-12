@@ -1,6 +1,6 @@
 import numpy as np
 import tensorflow as tf
-from model import ReiWa
+from model import MSSTN
 from data_utils import *
 import yaml
 import os
@@ -71,7 +71,7 @@ if __name__=='__main__':
         model_version = config['Inference_Model']
     
 
-    model = ReiWa(config)
+    model = MSSTN(config)
     data = dataset(config)
     version = time.strftime('%Y%m%d_%H%M%S')
     tfcfg = tf.ConfigProto()
